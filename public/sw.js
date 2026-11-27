@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const STATIC_CACHE = `gamestart-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `gamestart-dynamic-${CACHE_VERSION}`;
 
@@ -7,6 +7,7 @@ const APP_SHELL_ASSETS = [
   '/manifest.json',
   '/css/app.css',
   '/js/install.js',
+  '/js/db.js',
   '/js/app.js',
   '/data/games.json',
   '/icons/icon-192.png',
