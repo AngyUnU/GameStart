@@ -1,59 +1,67 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# GameStart — PWA de Videojuegos con Laravel y Firebase Hosting
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplicación Web Progresiva (PWA) para explorar un catálogo de videojuegos, gestionar una biblioteca personal con notas offline y consultar capacidades nativas del dispositivo.
 
-## About Laravel
+## Caso de Uso Práctico
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**GameStart** resuelve el problema de consulta y seguimiento de videojuegos cuando el usuario no cuenta con conexión estable a internet:
+- Exploración y filtrado rápido de títulos por género o plataforma.
+- Guardado asíncrono de juegos, estados (*Por jugar*, *Jugando*, *Completado*) y notas personales en **IndexedDB**, disponibles sin conexión.
+- Alertas locales mediante **Notifications API**, detección de tiendas/torneos cercanos con **Geolocation API** y botón de compartir con **Web Share API**.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Arquitectura del Sistema
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+```mermaid
+flowchart LR
+    U[Usuario / Navegador] --> AS[App Shell Blade + CSS/JS]
+    AS --> SW[Service Worker sw.js]
+    SW -->|Network First| NAV[HTML / data/games.json]
+    SW -->|Cache First| ASSETS[CSS, JS, Iconos PNG, Portadas SVG]
+    AS --> IDB[(IndexedDB gamestart_db)]
+    AS --> API[Web APIs: Notifications, Geolocation, Share]
+    LAR[Laravel 12 SSR / Artisan pwa:build] -->|Genera /dist| FH[Firebase Hosting HTTPS]
+```
 
-## Learning Laravel
+## Requisitos Cumplidos
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+1. **Instalabilidad**: `public/manifest.json` completo (`standalone`, `theme_color`, `background_color`, `screenshots`) e iconos PNG `192x192` y `512x512` (`any` y `maskable`), con captura de `beforeinstallprompt`.
+2. **App Shell Responsivo**: Cabecera fija, navegación adaptativa (barra superior en escritorio e inferior en móvil) y separación entre estructura estática y contenido dinámico.
+3. **Service Worker y Caché**: Registro limpio y manejo de `install`, `activate` (limpieza de cachés previas) y `fetch` con estrategias *Network First* y *Cache First*.
+4. **Persistencia Offline**: Almacenamiento asíncrono en `IndexedDB` (`catalog` y `library`) con actualización inmediata de la interfaz.
+5. **Web APIs Nativas**: Integración de *Notifications API*, *Geolocation API* y *Web Share API* con validación explícita de soporte y permisos.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Credenciales y Flujo de Prueba
 
-## Laravel Sponsors
+- **Acceso**: No requiere credenciales de inicio de sesión (acceso abierto para evaluación directa).
+- **Instalación**: Abrir en Chrome/Edge, verificar en DevTools (*Application > Manifest*) y pulsar **Instalar App**.
+- **Modo Offline**: Activar *Offline* en DevTools (*Network* o *Application > Service Workers*), recargar la página, filtrar el catálogo y crear/editar registros en **Mi Biblioteca**.
+- **APIs Nativas**: Ir a **Radar Gaming**, autorizar notificaciones y detección de ubicación para comprobar el manejo de permisos y resultados.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Instalación Local y Despliegue
 
-### Premium Partners
+```bash
+# 1. Instalar dependencias de Laravel
+composer install
+cp .env.example .env
+php artisan key:generate
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+# 2. Ejecutar servidor local SSR con Laravel
+php artisan serve
 
-## Contributing
+# 3. Exportar compilado estático para Firebase Hosting
+php artisan pwa:build
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# 4. Desplegar con SSL/HTTPS en Firebase Hosting
+firebase login --reauth
+firebase use --add
+firebase deploy --only hosting
+```
 
-## Code of Conduct
+## Publicación y Evidencia
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **URL de Producción (Firebase Hosting)**: *Pendiente de ejecutar `firebase deploy --only hosting` tras autenticar la CLI (`firebase login --reauth`).*
+- **Repositorio Git**: `https://github.com/AngyUnU/GameStart.git`
 
-## Security Vulnerabilities
+### Capturas de Evidencia
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+> Agregar aquí las capturas finales tras el despliegue (Manifest sin errores, Service Worker activo, prueba Offline, IndexedDB y aplicación instalada).
