@@ -17,6 +17,7 @@
 /public/hot
 /public/storage
 /dist
+/.firebase
 /storage/*.key
 /storage/pail
 /vendor
