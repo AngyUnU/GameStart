@@ -1,0 +1,90 @@
+[
+  {
+    "id": "zelda-totk",
+    "title": "The Legend of Zelda: Tears of the Kingdom",
+    "genre": "Aventura",
+    "platform": "Nintendo Switch",
+    "year": 2023,
+    "rating": 9.8,
+    "price": "$1,399 MXN",
+    "cover": "/images/games/zelda-totk.svg",
+    "description": "Explora los cielos y las profundidades de Hyrule combinando habilidades de ultramano y santuarios."
+  },
+  {
+    "id": "elden-ring",
+    "title": "Elden Ring",
+    "genre": "RPG",
+    "platform": "PC / PS5 / Xbox",
+    "year": 2022,
+    "rating": 9.7,
+    "price": "$1,199 MXN",
+    "cover": "/images/games/elden-ring.svg",
+    "description": "RPG de acción en mundo abierto ambientado en las Tierras Intermedias con combates exigentes."
+  },
+  {
+    "id": "hollow-knight",
+    "title": "Hollow Knight",
+    "genre": "Metroidvania",
+    "platform": "PC / Switch / PS4",
+    "year": 2017,
+    "rating": 9.5,
+    "price": "$299 MXN",
+    "cover": "/images/games/hollow-knight.svg",
+    "description": "Aventura clásica en 2D bajo tierra llena de insectos, secretos y jefes memorables."
+  },
+  {
+    "id": "cyberpunk-2077",
+    "title": "Cyberpunk 2077: Phantom Liberty",
+    "genre": "Acción RPG",
+    "platform": "PC / PS5 / Xbox",
+    "year": 2023,
+    "rating": 9.1,
+    "price": "$999 MXN",
+    "cover": "/images/games/cyberpunk-2077.svg",
+    "description": "Historia futurista en Night City con implantes cibernéticos, espionaje y múltiples finales."
+  },
+  {
+    "id": "hades-2",
+    "title": "Hades II",
+    "genre": "Roguelike",
+    "platform": "PC",
+    "year": 2024,
+    "rating": 9.4,
+    "price": "$499 MXN",
+    "cover": "/images/games/hades-2.svg",
+    "description": "Enfréntate al Titán del Tiempo con hechicería oscura, bendiciones olímpicas y ritmo ágil."
+  },
+  {
+    "id": "mario-wonder",
+    "title": "Super Mario Bros. Wonder",
+    "genre": "Plataformas",
+    "platform": "Nintendo Switch",
+    "year": 2023,
+    "rating": 9.3,
+    "price": "$1,299 MXN",
+    "cover": "/images/games/mario-wonder.svg",
+    "description": "Niveles cooperativos llenos de flores maravilla que transforman las reglas de cada mundo."
+  },
+  {
+    "id": "baldurs-gate-3",
+    "title": "Baldur's Gate 3",
+    "genre": "RPG Táctico",
+    "platform": "PC / PS5 / Xbox",
+    "year": 2023,
+    "rating": 9.9,
+    "price": "$1,299 MXN",
+    "cover": "/images/games/baldurs-gate-3.svg",
+    "description": "Rol basado en Dungeons & Dragons con decisiones profundas y combate por turnos."
+  },
+  {
+    "id": "celeste",
+    "title": "Celeste",
+    "genre": "Plataformas",
+    "platform": "PC / Switch / PS4",
+    "year": 2018,
+    "rating": 9.4,
+    "price": "$249 MXN",
+    "cover": "/images/games/celeste.svg",
+    "description": "Escala la montaña Celeste superando retos de precisión y una historia emotiva."
+  }
+]
