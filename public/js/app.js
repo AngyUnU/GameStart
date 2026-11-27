@@ -97,6 +97,29 @@ async function loadCatalogData() {
   }
 }
 
+function registerServiceWorker() {
+  if (!('serviceWorker' in navigator)) return;
+
+  window.addEventListener('load', async () => {
+    try {
+      const registration = await navigator.serviceWorker.register('/sw.js', { scope: '/' });
+      registration.addEventListener('updatefound', () => {
+        const newWorker = registration.installing;
+        if (!newWorker) return;
+        newWorker.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            showToast('Nueva versión lista. Recarga para actualizar.');
+          }
+        });
+      });
+    } catch (error) {
+      console.error('Error al registrar Service Worker:', error);
+    }
+  });
+}
+
+registerServiceWorker();
+
 document.addEventListener('DOMContentLoaded', async () => {
   updateConnectionBadge();
   window.addEventListener('online', () => {
