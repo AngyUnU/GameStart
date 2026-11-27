@@ -6,7 +6,7 @@
     "platform": "Nintendo Switch",
     "year": 2023,
     "price": "$1,399 MXN",
-    "cover": "/images/games/zelda-totk.svg",
+    "cover": "/images/games/Zelda Tears of the Kingdom.jpg",
     "description": "Explora Hyrule por tierra, cielo y subsuelo resolviendo santuarios."
   },
   {
@@ -16,7 +16,7 @@
     "platform": "PC / PS5 / Xbox",
     "year": 2022,
     "price": "$1,199 MXN",
-    "cover": "/images/games/elden-ring.svg",
+    "cover": "/images/games/Elden-ring.jpg",
     "description": "Juego de rol y acción en mundo abierto con combates contra jefes."
   },
   {
@@ -26,7 +26,7 @@
     "platform": "PC / Switch / PS4",
     "year": 2017,
     "price": "$299 MXN",
-    "cover": "/images/games/hollow-knight.svg",
+    "cover": "/images/games/hollow-knight.png",
     "description": "Aventura 2D en un reino subterráneo lleno de rutas secretas."
   },
   {
@@ -36,7 +36,7 @@
     "platform": "PC / PS5 / Xbox",
     "year": 2023,
     "price": "$999 MXN",
-    "cover": "/images/games/cyberpunk-2077.svg",
+    "cover": "/images/games/cyberpunk-2077.jpg",
     "description": "Historia futurista en Night City con mejoras cibernéticas."
   },
   {
@@ -46,7 +46,7 @@
     "platform": "Nintendo Switch",
     "year": 2023,
     "price": "$1,299 MXN",
-    "cover": "/images/games/mario-wonder.svg",
+    "cover": "/images/games/mario-wonder.jpg",
     "description": "Niveles cooperativos con flores maravilla que cambian el escenario."
   },
   {
@@ -56,7 +56,7 @@
     "platform": "PC / Switch / PS4",
     "year": 2018,
     "price": "$249 MXN",
-    "cover": "/images/games/celeste.svg",
+    "cover": "/images/games/celeste.png",
     "description": "Escala la montaña Celeste superando retos de plataformas."
   }
 ]
