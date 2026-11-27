@@ -64,6 +64,7 @@
 
     <script src="/js/install.js" defer></script>
     <script src="/js/db.js" defer></script>
+    <script src="/js/native-apis.js" defer></script>
     <script src="/js/app.js" defer></script>
 </body>
 </html>
