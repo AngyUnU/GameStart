@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v3';
+const CACHE_VERSION = 'v4';
 const STATIC_CACHE = `gamestart-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `gamestart-dynamic-${CACHE_VERSION}`;
 
@@ -6,7 +6,6 @@ const APP_SHELL_ASSETS = [
   '/',
   '/manifest.json',
   '/css/app.css',
-  '/js/install.js',
   '/js/db.js',
   '/js/native-apis.js',
   '/js/app.js',
@@ -19,13 +18,10 @@ const APP_SHELL_ASSETS = [
   '/images/games/elden-ring.svg',
   '/images/games/hollow-knight.svg',
   '/images/games/cyberpunk-2077.svg',
-  '/images/games/hades-2.svg',
   '/images/games/mario-wonder.svg',
-  '/images/games/baldurs-gate-3.svg',
   '/images/games/celeste.svg'
 ];
 
-// Instalacion: precache del App Shell y recursos estaticos
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(STATIC_CACHE).then((cache) => cache.addAll(APP_SHELL_ASSETS))
@@ -33,7 +29,6 @@ self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
-// Activacion: limpieza de caches de versiones anteriores
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
@@ -46,7 +41,6 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Estrategia Network First para navegacion y datos JSON
 async function networkFirst(request) {
   const cache = await caches.open(DYNAMIC_CACHE);
   try {
@@ -65,7 +59,6 @@ async function networkFirst(request) {
   }
 }
 
-// Estrategia Cache First para recursos estaticos
 async function cacheFirst(request) {
   const cached = await caches.match(request);
   if (cached) return cached;

@@ -23,6 +23,6 @@ class GameStartPwaTest extends TestCase
         $response = $this->get('/api/games');
 
         $response->assertStatus(200);
-        $response->assertJsonCount(8);
+        $response->assertJsonCount(6);
     }
 }
