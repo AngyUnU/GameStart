@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v5';
+const CACHE_VERSION = 'v6';
 const STATIC_CACHE = `gamestart-static-${CACHE_VERSION}`;
 const DYNAMIC_CACHE = `gamestart-dynamic-${CACHE_VERSION}`;
 
@@ -14,12 +14,12 @@ const APP_SHELL_ASSETS = [
   '/icons/icon-192-maskable.png',
   '/icons/icon-512.png',
   '/icons/icon-512-maskable.png',
-  '/images/games/zelda-totk.svg',
-  '/images/games/elden-ring.svg',
-  '/images/games/hollow-knight.svg',
-  '/images/games/cyberpunk-2077.svg',
-  '/images/games/mario-wonder.svg',
-  '/images/games/celeste.svg'
+  '/images/games/Zelda%20Tears%20of%20the%20Kingdom.jpg',
+  '/images/games/elden-ring.jpg',
+  '/images/games/hollow-knight.png',
+  '/images/games/cyberpunk-2077.jpg',
+  '/images/games/mario-wonder.jpg',
+  '/images/games/celeste.png'
 ];
 
 self.addEventListener('install', (event) => {

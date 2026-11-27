@@ -344,6 +344,27 @@ body {
   padding: 10px;
 }
 
+.stack-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.media-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.media-preview {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #0b1120;
+}
+
 .status-msg {
   position: fixed;
   right: 20px;
@@ -376,7 +397,8 @@ body {
     min-width: 0;
   }
 
-  .form-grid {
+  .form-grid,
+  .stack-row {
     grid-template-columns: 1fr;
   }
 

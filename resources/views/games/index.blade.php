@@ -87,6 +87,38 @@
                 </div>
                 <div id="geo-results" class="geo-box"></div>
             </div>
+
+            <form id="custom-game-form" class="box">
+                <h3>Agregar nuevo videojuego</h3>
+                <p class="subtitle">Selecciona una imagen o toma una foto y guárdalo en IndexedDB.</p>
+                <input type="text" id="new-game-title" class="input" placeholder="Título del videojuego" required>
+                <div class="stack-row">
+                    <input type="text" id="new-game-genre" class="input" placeholder="Género (ej. Aventura)" required>
+                    <input type="text" id="new-game-platform" class="input" placeholder="Plataforma (ej. PC / Switch)" required>
+                </div>
+                <input type="text" id="new-game-price" class="input" placeholder="Precio (ej. $799 MXN)" required>
+                <input type="text" id="new-game-desc" class="input" placeholder="Descripción breve" required>
+
+                <input type="file" id="game-image-input" accept="image/*" hidden>
+                <div class="btn-group">
+                    <button type="button" id="btn-select-image" class="btn btn-secondary">Seleccionar imagen</button>
+                    <button type="button" id="btn-open-camera" class="btn btn-outline">Tomar foto</button>
+                </div>
+
+                <div id="camera-box" class="media-box" hidden>
+                    <video id="camera-preview" class="media-preview" autoplay playsinline muted></video>
+                    <div class="btn-group">
+                        <button type="button" id="btn-capture-photo" class="btn btn-primary">Capturar foto</button>
+                        <button type="button" id="btn-close-camera" class="btn btn-secondary">Cancelar</button>
+                    </div>
+                </div>
+
+                <div id="image-preview-box" class="media-box" hidden>
+                    <img id="game-image-preview" alt="Vista previa de la portada" class="media-preview">
+                </div>
+
+                <button type="submit" id="btn-save-custom-game" class="btn btn-primary">Guardar en IndexedDB</button>
+            </form>
         </div>
     </section>
 @endsection

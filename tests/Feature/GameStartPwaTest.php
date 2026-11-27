@@ -16,6 +16,9 @@ class GameStartPwaTest extends TestCase
         $response->assertSee('/css/app.css');
         $response->assertSee('/js/db.js');
         $response->assertSee('/js/native-apis.js');
+        $response->assertSee('Seleccionar imagen');
+        $response->assertSee('Tomar foto');
+        $response->assertSee('Guardar en IndexedDB');
     }
 
     public function test_games_api_returns_catalog_json(): void

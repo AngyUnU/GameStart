@@ -1,8 +1,9 @@
 // Persistencia local asincrona con IndexedDB
 const DB_NAME = 'gamestart_db';
-const DB_VERSION = 1;
+const DB_VERSION = 2;
 const STORE_CATALOG = 'catalog';
 const STORE_LIBRARY = 'library';
+const STORE_CUSTOM_GAMES = 'custom_games';
 
 function openDatabase() {
   return new Promise((resolve, reject) => {
@@ -16,6 +17,9 @@ function openDatabase() {
       if (!db.objectStoreNames.contains(STORE_LIBRARY)) {
         const libraryStore = db.createObjectStore(STORE_LIBRARY, { keyPath: 'id' });
         libraryStore.createIndex('status', 'status', { unique: false });
+      }
+      if (!db.objectStoreNames.contains(STORE_CUSTOM_GAMES)) {
+        db.createObjectStore(STORE_CUSTOM_GAMES, { keyPath: 'id' });
       }
     };
 
@@ -68,5 +72,24 @@ window.GameDB = {
 
   async removeFromLibrary(id) {
     return runTransaction(STORE_LIBRARY, 'readwrite', (store) => store.delete(id));
+  },
+
+  async saveCustomGame(game) {
+    const item = {
+      ...game,
+      isCustom: true,
+      createdAt: new Date().toISOString()
+    };
+    await runTransaction(STORE_CUSTOM_GAMES, 'readwrite', (store) => store.put(item));
+    return item;
+  },
+
+  async getCustomGames() {
+    const items = await runTransaction(STORE_CUSTOM_GAMES, 'readonly', (store) => store.getAll());
+    return items.sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''));
+  },
+
+  async removeCustomGame(id) {
+    return runTransaction(STORE_CUSTOM_GAMES, 'readwrite', (store) => store.delete(id));
   }
 };
