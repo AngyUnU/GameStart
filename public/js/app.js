@@ -53,14 +53,17 @@ function renderCatalog(games) {
 
   grid.innerHTML = games.map((game) => `
     <article class="card">
-      <img src="${escapeHtml(game.cover)}" alt="${escapeHtml(game.title)}" class="card-img">
+      <img src="${escapeHtml(game.cover)}" alt="${escapeHtml(game.title)}" class="card-img" loading="lazy">
       <div class="card-body">
-        <small class="tag">${escapeHtml(game.genre)} &bull; ${escapeHtml(game.platform)}</small>
+        <div class="card-meta">
+          <span class="tag">${escapeHtml(game.genre)}</span>
+          <span class="platform">${escapeHtml(game.platform)}</span>
+        </div>
         <h2>${escapeHtml(game.title)}</h2>
         <p>${escapeHtml(game.description)}</p>
         <div class="card-footer">
-          <strong>${escapeHtml(game.price)}</strong>
-          <div>
+          <span class="price">${escapeHtml(game.price)}</span>
+          <div class="card-actions">
             <button type="button" class="btn btn-secondary btn-save-game" data-game-id="${escapeHtml(game.id)}">
               ${savedIds.has(game.id) ? 'Guardado' : 'Guardar'}
             </button>

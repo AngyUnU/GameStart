@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
   <defs>
-    <linearGradient id="g0" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1e1b4b"/>
-      <stop offset="100%" stop-color="#6366f1"/>
+    <linearGradient id="bg0" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#312e81"/>
     </linearGradient>
   </defs>
-  <rect width="640" height="360" fill="url(#g0)"/>
-  <circle cx="520" cy="90" r="95" fill="#22d3ee" fill-opacity="0.18"/>
-  <circle cx="110" cy="290" r="120" fill="#ffffff" fill-opacity="0.06"/>
-  <rect x="36" y="42" width="128" height="28" rx="6" fill="#0b0f1a" fill-opacity="0.55"/>
-  <text x="50" y="61" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="14" font-weight="700">AVENTURA</text>
-  <text x="36" y="255" fill="#ffffff" font-family="system-ui,sans-serif" font-size="28" font-weight="800">The Legend of Zelda: Tears ...</text>
-  <text x="36" y="290" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="16">Nintendo Switch • 2023</text>
+  <rect width="640" height="360" fill="url(#bg0)"/>
+  <circle cx="95" cy="300" r="145" fill="#6366f1" fill-opacity="0.12"/>
+  <circle cx="480" cy="110" r="95" fill="#38bdf8" fill-opacity="0.18"/>
+             <circle cx="480" cy="110" r="52" fill="#6366f1" fill-opacity="0.35"/>
+  <rect x="36" y="36" width="54" height="54" rx="14" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.2"/>
+  <text x="63" y="71" text-anchor="middle" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="22" font-weight="700">ZT</text>
+  <text x="36" y="316" fill="#e2e8f0" fill-opacity="0.85" font-family="system-ui,sans-serif" font-size="14" letter-spacing="2" font-weight="600">2023 • AVENTURA</text>
 </svg>

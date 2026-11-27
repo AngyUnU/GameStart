@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
   <defs>
-    <linearGradient id="g7" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#1e293b"/>
-      <stop offset="100%" stop-color="#f43f5e"/>
+    <linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#881337"/>
     </linearGradient>
   </defs>
-  <rect width="640" height="360" fill="url(#g7)"/>
-  <circle cx="520" cy="90" r="95" fill="#38bdf8" fill-opacity="0.18"/>
-  <circle cx="110" cy="290" r="120" fill="#ffffff" fill-opacity="0.06"/>
-  <rect x="36" y="42" width="128" height="28" rx="6" fill="#0b0f1a" fill-opacity="0.55"/>
-  <text x="50" y="61" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="14" font-weight="700">PLATAFORMAS</text>
-  <text x="36" y="255" fill="#ffffff" font-family="system-ui,sans-serif" font-size="28" font-weight="800">Celeste</text>
-  <text x="36" y="290" fill="#e2e8f0" font-family="system-ui,sans-serif" font-size="16">PC / Switch / PS4 • 2018</text>
+  <rect width="640" height="360" fill="url(#bg5)"/>
+  <circle cx="95" cy="300" r="145" fill="#38bdf8" fill-opacity="0.12"/>
+  <polygon points="330,270 460,85 590,270" fill="#fda4af" fill-opacity="0.2"/>
+             <polygon points="410,270 510,120 610,270" fill="#38bdf8" fill-opacity="0.3"/>
+  <rect x="36" y="36" width="54" height="54" rx="14" fill="#ffffff" fill-opacity="0.12" stroke="#ffffff" stroke-opacity="0.2"/>
+  <text x="63" y="71" text-anchor="middle" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="22" font-weight="700">C</text>
+  <text x="36" y="316" fill="#e2e8f0" fill-opacity="0.85" font-family="system-ui,sans-serif" font-size="14" letter-spacing="2" font-weight="600">2018 • PLATAFORMAS</text>
 </svg>
